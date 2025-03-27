@@ -440,7 +440,7 @@ Differential Equations with Boundary Value Problems</a></p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-03-20 16:20:50" itemprop="dateModified" datetime="2025-03-20T16:20:50+08:00">2025-03-20</time>
+      <time title="Modified: 2025-03-27 20:32:43" itemprop="dateModified" datetime="2025-03-27T20:32:43+08:00">2025-03-27</time>
     </span>
 
   
@@ -583,11 +583,12 @@ e^{i \theta}=\cos{\theta}+i\sin{\theta}
 <blockquote>
 <p>在学习微分方程的时候遇见过。</p>
 </blockquote>
-<h1 id="部分证明">部分证明</h1>
-<h2 id="证明">证明</h2>
-<p><span class="math display">\[
-\cos(\alpha-\beta)=\cos(\alpha)\cos(\beta)+\sin(\alpha)\sin(\beta)
-\]</span></p>
+<h1 id="证明">证明</h1>
+<h2 id="cosalpha-betacosalphacosbetasinalphasinbeta"><span
+class="math inline">\(\cos(\alpha-\beta)=\cos(\alpha)\cos(\beta)+\sin(\alpha)\sin(\beta)\)</span></h2>
+<blockquote>
+<p>证明这个公式之后，剩余的公式都可以很容易地推导出来。</p>
+</blockquote>
 <p>Proof.</p>
 <p>Step 1. 作图：</p>
 <figure>
@@ -617,8 +618,178 @@ class="math inline">\(PQ=\sqrt{(\cos(\alpha)-\cos(\beta))^2+(\sin(\alpha)-\sin(\
 \cos(\alpha-\beta)  \hspace{5cm}\blacksquare\\
 \end{aligned}
 \]</span></p>
-<h1 id="结语">结语</h1>
-<p>希望今后自己在需要用到这些公式的时候，能够回来看看这篇笔记。</p>
+<h1 id="应用">应用</h1>
+<h2 id="纯电阻交流电路的平均功率">纯电阻交流电路的平均功率</h2>
+<figure>
+<img
+src="https://raw.githubusercontent.com/MatsubaraSoda/MatsubaraSoda.github.io/refs/heads/img/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F/purely%20resistive%20AC%20circuit.png"
+alt="purely resistive AC circuit" />
+<figcaption aria-hidden="true">purely resistive AC circuit</figcaption>
+</figure>
+<p>如图(用EveryCircuit制作)，这是一个纯电阻交流电路，其中交流电压:<span
+class="math inline">\(v = V_{\text{max}} \sin(2\pi f
+t),(V_{\text{max}}=5 \text{V}, f = 1000 \text{Hz}\)</span>)，电阻:<span
+class="math inline">\(R=2 \Omega\)</span>。根据欧姆定律<span
+class="math inline">\(I =
+\frac{V}{R}\)</span>，我们可以得到电路电流的表达式： <span
+class="math display">\[
+i=\frac{v}{R}=\frac{V_{\text{max}}}{R} \sin(2\pi f t)
+\]</span> 根据电功率公式<span class="math inline">\(P=I^2
+R\)</span>可知： <span class="math display">\[
+p=i^2R=\frac{V_{\text{max}}^2}{R} \sin^2(2\pi f t) = I_{\text{max}}^2 R
+\sin^2(2\pi f t)
+\]</span> 于是，我们得到了瞬时功率<span
+class="math inline">\(p\)</span>的表达式。接着，我们想要知道电路的平均功率可以利用微积分计算<span
+class="math inline">\(p\)</span>在一个周期<span
+class="math inline">\(T=\frac{1}{f}\)</span>中所做的总功<span
+class="math inline">\(W_T\)</span>，再除以周期<span
+class="math inline">\(T\)</span>,便能得到平均功率<span
+class="math inline">\(P_{\text{av}}=\frac{W_T}{T}\)</span>。 <span
+class="math display">\[
+\begin{align}
+P_{\text{av}}
+&amp;= \frac{W_T}{T} \\
+&amp;= \frac{\int^{1/f}_0 i^2R\ \mathrm{d} t}{1/f} \\
+&amp;= I_{\text{max}}^2 R f \int^{1/f}_0 \sin^2(2\pi f t)\ \mathrm{d} t
+\\
+&amp;= I_{\text{max}}^2 R f \int^{1/f}_0 \frac{1 - \cos{4 \pi f t}}{2}\
+\mathrm{d} t \\
+&amp;= I_{\text{max}}^2 R f \left( \frac{t}{2} - \frac{\sin{4 \pi f
+t}}{8 \pi f} \right) \bigg|^{1/f}_{0} \\
+&amp;= I_{\text{max}}^2 R  f \frac{1}{2f} \\
+&amp;= \frac{1}{2}I_{\text{max}}^2 R = \frac{V_{\text{max}}^2}{2R} =
+\frac{1}{2} V_{\text{max}} I_{\text{max}}
+\end{align}
+\]</span></p>
+<blockquote>
+<p>注意，在上述公式推导中，(3)到(4)的化简利用了半角公式。</p>
+</blockquote>
+<p>至此，我们得到了纯电阻交流电路中<span
+class="math inline">\(P_\text{av},I_{\text{max}},V_{\text{max}},R\)</span>之间的数值关系。<br />
+我推导这个公式的主要目的是为了介绍半角公式的使用。在这里，半角公式作为化简积分的一种技巧而被使用。</p>
+<h2 id="简谐运动shm公式推导">简谐运动(SHM)公式推导</h2>
+<p>简谐运动的一般形式由胡克定律和牛顿第二定律结合得到：</p>
+<p><span class="math display">\[
+m\frac{\mathrm{d}^2 x}{\mathrm{d} t^2} + k x =0 \tag{1}
+\]</span></p>
+<p>将其转化为线性方程组(linear homogeneous constant coefficient systems
+of ODEs)：</p>
+<p><span class="math display">\[
+\begin{equation}
+\left\{
+\begin{aligned}
+  \frac{\mathrm{d}x}{\mathrm{d}t} &amp;= v \\
+  \frac{\mathrm{d}v}{\mathrm{d}t} &amp;= -\frac{k}{m}x
+\end{aligned}
+\right.  \tag{2}
+\end{equation}
+\]</span></p>
+<p>为了求此系统的解，我们引入以下定理：</p>
+<blockquote>
+<p>如何得到这个定理请参考链接：<br />
+<a
+target="_blank" rel="noopener" href="https://math.libretexts.org/Bookshelves/Differential_Equations/Differential_Equations_for_Engineers_(Lebl)/3%3A_Systems_of_ODEs/3.4%3A_Eigenvalue_Method">3.4:
+Eigenvalue Method</a><br />
+<a
+target="_blank" rel="noopener" href="https://judsonbooks.org/odeproject/odeproject-html/linear04.html">3.4
+Complex Eigenvalues</a></p>
+</blockquote>
+<section id="theorem-1"
+style="border: 1px solid black; padding: 0px 10px; line-height: 2;">
+<h3>Theorem 1</h3>
+<p>对于线性方程组<span
+class="math inline">\(\mathbf{x}&#39;=A\mathbf{x}\)</span>，假设矩阵<span
+class="math inline">\(A\)</span>是一个大小为<span
+class="math inline">\(2\times 2\)</span>的常数矩阵。如果<span
+class="math inline">\(A\)</span>有一个复特征值<span
+class="math inline">\(a + b i\)</span>和相应的复特征向量<span
+class="math inline">\(\mathbf{v}\)</span>，那么这个线性方程组的通解为：</p>
+<p><span class="math display">\[
+\mathbf{x}=c_1 \Re\left[e^{(a+ib)t}\mathbf{v}\right] + c_2
+\Im\left[e^{(a+ib)t}\mathbf{v}\right]
+\]</span></p>
+</section>
+<p><br />
+将线性方程组<span class="math inline">\((2)\)</span>写作<span
+class="math inline">\(\mathbf{x}&#39;=A\mathbf{x}\)</span>的形式：</p>
+<p><span class="math display">\[
+\begin{pmatrix} x&#39; \\ v&#39; \end{pmatrix} = \begin{pmatrix} 0 &amp;
+1 \\ -\frac{k}{m} &amp; 0 \end{pmatrix} \begin{pmatrix} x \\
+v\end{pmatrix} \tag{3}
+\]</span></p>
+<p>求出矩阵<span class="math inline">\(A\)</span>的特征值为<span
+class="math inline">\(\lambda =
+i\sqrt{\frac{k}{m}}\)</span>，相应的特征向量为<span
+class="math inline">\(\mathbf{v} = \begin{pmatrix} 1 \\
+i\sqrt{\frac{k}{m}}\end{pmatrix}\)</span>。</p>
+<p>根据Theorem 1，我们得到通解：</p>
+<p><span class="math display">\[
+\begin{pmatrix} x \\ v\end{pmatrix} = c_1
+\Re\left[e^{i\sqrt{\frac{k}{m}}t} \begin{pmatrix} 1 \\
+i\sqrt{\frac{k}{m}}\end{pmatrix}\right] + c_2
+\Im\left[e^{i\sqrt{\frac{k}{m}}t}\begin{pmatrix} 1 \\
+i\sqrt{\frac{k}{m}}\end{pmatrix}\right] \tag{4}
+\]</span></p>
+<p>根据欧拉公式可得：</p>
+<p><span class="math display">\[
+e^{i\sqrt{\frac{k}{m}}t} = \cos{\left( \sqrt{\frac{k}{m}}t \right)} + i
+\sin{\left( \sqrt{\frac{k}{m}}t \right)} \tag{5}
+\]</span></p>
+<p>将<span class="math inline">\((5)\)</span>带入(4)得：</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+\begin{pmatrix} x \\ v\end{pmatrix} &amp;= c_1 \Re\left\{\left[
+\cos{\left( \sqrt{\frac{k}{m}}t \right)} + i \sin{\left(
+\sqrt{\frac{k}{m}}t \right)} \right] \begin{pmatrix} 1 \\
+i\sqrt{\frac{k}{m}}\end{pmatrix}\right\} + c_2 \Im\left\{\left[
+\cos{\left( \sqrt{\frac{k}{m}}t \right)} + i \sin{\left(
+\sqrt{\frac{k}{m}}t \right)} \right]\begin{pmatrix} 1 \\
+i\sqrt{\frac{k}{m}}\end{pmatrix}\right\} \\
+&amp;= c_1 \Re\left[ \begin{pmatrix} \cos{\left( \sqrt{\frac{k}{m}}t
+\right)} + i \sin{\left( \sqrt{\frac{k}{m}}t \right)} \\
+i\sqrt{\frac{k}{m}}\cos{\left( \sqrt{\frac{k}{m}}t \right)} -
+\sqrt{\frac{k}{m}} \sin{\left( \sqrt{\frac{k}{m}}t \right)}
+\end{pmatrix} \right]
++ c_2 \Im\left[ \begin{pmatrix} \cos{\left( \sqrt{\frac{k}{m}}t \right)}
++ i \sin{\left( \sqrt{\frac{k}{m}}t \right)} \\
+i\sqrt{\frac{k}{m}}\cos{\left( \sqrt{\frac{k}{m}}t \right)} -
+\sqrt{\frac{k}{m}} \sin{\left( \sqrt{\frac{k}{m}}t \right)}
+\end{pmatrix} \right] \\
+&amp;=c_1 \begin{pmatrix} \cos{\left( \sqrt{\frac{k}{m}}t \right)} \\
+-\sqrt{\frac{k}{m}} \sin{\left( \sqrt{\frac{k}{m}}t \right)}
+\end{pmatrix}
++ c_2 \begin{pmatrix} \sin{\left( \sqrt{\frac{k}{m}}t \right)} \\
+\sqrt{\frac{k}{m}}\cos{\left( \sqrt{\frac{k}{m}}t \right)} \end{pmatrix}
+\\
+&amp;= \begin{pmatrix} \cos{\left( \sqrt{\frac{k}{m}}t \right)} &amp;
+\sin{\left( \sqrt{\frac{k}{m}}t \right)} \\ -\sqrt{\frac{k}{m}}
+\sin{\left( \sqrt{\frac{k}{m}}t \right)} &amp;
+\sqrt{\frac{k}{m}}\cos{\left( \sqrt{\frac{k}{m}}t \right)} \end{pmatrix}
+\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}
+\end{aligned} \tag{6}
+\end{equation}
+\]</span></p>
+<p>为了求出常数<span
+class="math inline">\(c_1,c_2\)</span>的值，我们需要处置条件。假设<span
+class="math inline">\(x(t=0)=X_{\text{max}},v(t=0)=0\)</span>。(即此时物体位于最大位移处)<br />
+将初值条件带入<span class="math inline">\((6)\)</span>解得：</p>
+<p><span class="math display">\[
+\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} = \begin{pmatrix}
+X_{\text{max}} \\ 0 \end{pmatrix}
+\]</span></p>
+<p>所以</p>
+<p><span class="math display">\[
+\begin{aligned}
+x(t) &amp;= X_{\text{max}} \cos{\left( \sqrt{\frac{k}{m}}t \right)} \\
+v(t) &amp;= -\sqrt{\frac{k}{m}} X_{\text{max}} \sin{\left(
+\sqrt{\frac{k}{m}}t \right)}
+\end{aligned}
+\]</span></p>
+<p>至此我们得到了简谐运动的运动方程<span
+class="math inline">\(x(t),v(t)\)</span>。<br />
+在求解过程中，我们使用到了欧拉公式<span class="math inline">\(e^{i
+\theta}=\cos{\theta}+i\sin{\theta}\)</span>。</p>
 
       
     </div>
