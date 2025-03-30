@@ -174,7 +174,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-03-23 14:19:06" itemprop="dateModified" datetime="2025-03-23T14:19:06+08:00">2025-03-23</time>
+      <time title="Modified: 2025-03-30 07:03:22" itemprop="dateModified" datetime="2025-03-30T07:03:22+08:00">2025-03-30</time>
     </span>
 
   
@@ -196,7 +196,7 @@ equation</strong>)是能够被表示为以下形式的等式:</p>
 \frac{d y}{d x} + p(x)y = f(x)
 \]</span></p>
 <p>当<span
-class="math inline">\(q(x)=0\)</span>时，等式被称作一阶齐次线性微分方程(<strong>A
+class="math inline">\(f(x)=0\)</span>时，等式被称作一阶齐次线性微分方程(<strong>A
 first order homogeneous linear differential equation</strong>):</p>
 <p><span class="math display">\[
 \frac{d y}{d x} + p(x)y = 0
@@ -237,8 +237,8 @@ of parameters)</h3>
 class="math inline">\(\frac{d y}{d x} + p(x)y =
 f(x)\)</span>的解的形式为：<span
 class="math inline">\(y=v(x)h(x)\)</span>。其中<span
-class="math inline">\(h(x)\)</span>是此方程对应的齐次方程的解：<span
-class="math inline">\(h(x)=C_1 e^{-P(x)}\)</span>；<span
+class="math inline">\(h(x)\)</span>是此方程对应的齐次方程的特解：<span
+class="math inline">\(h(x)=e^{-P(x)}\)</span>；<span
 class="math inline">\(v(x)\)</span>则是“variation of
 parameters.”（我的理解是，<span
 class="math inline">\(v(x)\)</span>可以被视作一种解题技巧。）</p>
@@ -274,13 +274,13 @@ y &amp;= v(x)h(x) \\
 \end{aligned}
 \]</span></p>
 <blockquote>
-<p>注意：在开头我们定义了<span class="math inline">\(h(x)=C_1
-e^{-P(x)}\)</span>，但我们也可以定义<span
-class="math inline">\(h(x)=e^{-P(x)}\)</span>，因为<span
+<p>注意：在开头我们定义了<span
+class="math inline">\(h(x)=e^{-P(x)}\)</span>，但我们也可以定义<span
+class="math inline">\(h(x)= C_1 e^{-P(x)}\)</span>，因为<span
 class="math inline">\(y=v(x)h(x)=(\int \frac{f(x)}{h(x)} dx) h(x) =
 (\frac{1}{C_1} \int \frac{f(x)}{e^{-P(x)}} dx) C_1 e^{-P(x)}=(\int
 \frac{f(x)}{e^{-P(x)}} dx) e^{-P(x)}\)</span>，在这里，<span
-class="math inline">\(C_1\)</span>项会被约去。后一种定义也是教科书上常用的定义。</p>
+class="math inline">\(C_1\)</span>项会被约去。前一种定义是教科书上常用的定义。</p>
 </blockquote>
 <h3 id="方法2积分因子integrating-factor">方法2：积分因子(Integrating
 Factor)</h3>
@@ -312,9 +312,10 @@ product rule)。<br />
 y &amp;= \frac{\int μ(x)f(x) dx + C}{μ(x)}
 \end{aligned}
 \]</span></p>
-<p>由此，我们便得到解<span class="math inline">\(y = \frac{\int μ(x)f(x)
-dx + C}{μ(x)}\)</span>。下一步我们需要找出<span
-class="math inline">\(μ(x)\)</span>：<br />
+<p>由此，我们便得到通解 <span class="math display">\[
+y = \frac{\int μ(x)f(x) dx + C}{μ(x)}
+\]</span></p>
+<p>下一步我们需要找出<span class="math inline">\(μ(x)\)</span>：<br />
 如果：</p>
 <p><span class="math display">\[
 (μ(x)y)&#39; = μ(x)\frac{d y}{d x} + μ(x)p(x)y
@@ -339,11 +340,11 @@ e^{P(x)}\)</span>，所以一阶线性微分方程<span
 class="math inline">\(\frac{d y}{d x} + p(x)y =
 f(x)\)</span>的通解为：</p>
 <p><span class="math display">\[
-y = \frac{\int e^{P(t)} f(x) dt}{e^{P(t)}} + C e^{-P(t)}
+y = \frac{\int e^{P(x)} f(x) dx}{e^{P(x)}} + C e^{-P(x)}
 \]</span></p>
 <p>或者(令<span class="math inline">\(h(x)=e^{-P(t)}\)</span>)</p>
 <p><span class="math display">\[
-y = \left( \int \frac{f(x)}{h(x)} dt + C \right) h(x)
+y = \left( \int \frac{f(x)}{h(x)} dx + C \right) h(x)
 \]</span></p>
 <blockquote>
 <p>注意：这和我们通过第一种方法得到的通解是一样的。</p>
@@ -355,7 +356,7 @@ y = \left( \int \frac{f(x)}{h(x)} dt + C \right) h(x)
 \]</span></p>
 <p>的通解为</p>
 <p><span class="math display">\[
-h(x) = C e^{-P(t)} \text{, where } P(t) = \int p(x) dx
+y(x) = C e^{-P(x)} \text{, where } P(x) = \int p(x) dx
 \]</span></p>
 <p>；<br />
 一阶线性微分方程</p>
@@ -364,7 +365,8 @@ h(x) = C e^{-P(t)} \text{, where } P(t) = \int p(x) dx
 \]</span></p>
 <p>的通解为</p>
 <p><span class="math display">\[
-y = \left( \int \frac{f(x)}{h(x)} dx + C \right) h(x)
+y = \left( \int \frac{f(x)}{h(x)} dx + C \right) h(x) \text{, where }
+h(x) = e^{-P(x)}
 \]</span></p>
 <p>。</p>
 <h2 id="参考资料">参考资料</h2>
@@ -378,6 +380,133 @@ Sciences</a><br />
 <a
 target="_blank" rel="noopener" href="https://math.libretexts.org/Courses/Community_College_of_Denver/MAT_2562_Differential_Equations_with_Linear_Algebra/02%3A_First_Order_Equations/2.01%3A_Linear_First_Order_Equations#title">Elementary
 Differential Equations with Boundary Value Problems</a></p>
+<h1 id="应用">应用</h1>
+<h2 id="rc直流电路分析--充放电公式">RC直流电路分析--充放电公式</h2>
+<h3 id="充电过程">充电过程</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/MatsubaraSoda/MatsubaraSoda.github.io/refs/heads/img/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/Charging%20a%20capacitor.png"
+alt="Charging a capacitor" />
+<figcaption aria-hidden="true">Charging a capacitor</figcaption>
+</figure>
+<p>如图所示，这是一个RC直流电路（电动势<span
+class="math inline">\(\mathcal{E}\)</span>，电阻<span
+class="math inline">\(R\)</span>，电容<span
+class="math inline">\(C\)</span>）。</p>
+<p>电路最初处于状态(a)，我们可以据此得到初值条件</p>
+<p><span class="math display">\[
+q(t=0) = 0 \tag{1}
+\]</span></p>
+<p>闭合电路后，我们得到状态(b)。根据<strong>基尔霍夫定律</strong>我们可知<span
+class="math inline">\(v_\text{ab} + v_{\text{bc}} =
+v_{\text{ac}}\)</span>，即</p>
+<p><span class="math display">\[
+i R + \frac{q}{C} = \mathcal{E} \text{ where } i = \frac{\mathrm{d}
+q}{\mathrm{d} t} \tag{2}
+\]</span></p>
+<p>将(2)写成一阶线性微分方程的标准形式</p>
+<p><span class="math display">\[
+q&#39; + \frac{1}{R C} q = \frac{\mathcal{E}}{R} \tag{3}
+\]</span></p>
+<p>于是有 <span class="math display">\[
+\begin{equation}
+\begin{aligned}
+p(t) &amp;= \frac{1}{R C} \\
+f(t) &amp;= \frac{\mathcal{E}}{R} \\
+h(t) &amp;= e^{-\int p(t) \mathrm{d} t } = e^{-\frac{t}{R C}} \\
+q(t) &amp;= \left(\int \frac{f(t)}{h(t)} \mathrm{d} t + C_1 \right) h(t)
+\\
+&amp;= \left( \frac{\mathcal{E}}{R} \int e^{\frac{t}{R C}} \mathrm{d} t
++ C_1 \right) e^{-\frac{t}{R C}} \\
+&amp;= (C \mathcal{E} e^{\frac{t}{R C}} + C_1) e^{-\frac{t}{R C}} \\
+&amp;= C \mathcal{E} + C_1 e^{-\frac{t}{R C}}
+\end{aligned} \tag{4}
+\end{equation}
+\]</span></p>
+<p>将初值条件(1)代入(4)可得<span class="math inline">\(C_1\)</span></p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+q(0) &amp;= C \mathcal{E} + C_1 e^{-\frac{0}{R C}} \\
+&amp;= C \mathcal{E} + C_1 \\
+&amp;= 0 \\
+\implies C_1 &amp;= - C \mathcal{E}
+\end{aligned} \tag{5}
+\end{equation}
+\]</span></p>
+<p>将(5)代入(4)得</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+q(t) &amp;= C \mathcal{E} - C \mathcal{E} e^{-\frac{t}{R C}} \\
+&amp;= C \mathcal{E} (1 - e^{-\frac{t}{R C}})
+\end{aligned} \tag{6}
+\end{equation}
+\]</span></p>
+<p>又得</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+i(t) &amp;= \frac{\mathrm{d} q}{\mathrm{d} t} \\
+&amp;= C \mathcal{E} e^{-\frac{t}{R C}}
+\end{aligned} \tag{7}
+\end{equation}
+\]</span></p>
+<p>至此，我们得到了RC直流电路充电过程的<span
+class="math inline">\(q(t),i(t)\)</span>的函数表达式<span
+class="math inline">\((6),(7)\)</span>。</p>
+<h3 id="放电过程">放电过程</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/MatsubaraSoda/MatsubaraSoda.github.io/refs/heads/img/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/Discharging%20a%20capacitor.png"
+alt="Discharging a capacitor" />
+<figcaption aria-hidden="true">Discharging a capacitor</figcaption>
+</figure>
+<p>如图所示，这是一个RC直流电路（电阻<span
+class="math inline">\(R\)</span>，电容<span
+class="math inline">\(C\)</span>）。</p>
+<p>电路最初处于状态(a)，我们可以据此得到初值条件</p>
+<p><span class="math display">\[
+q(t = 0) = Q_0 \tag{1}
+\]</span></p>
+<p>闭合电路后，我们得到状态(b)。根据<strong>基尔霍夫定律</strong>我们可知<span
+class="math inline">\(v_\text{ab} + v_{\text{bc}} = 0\)</span>，即</p>
+<p><span class="math display">\[
+i R + \frac{q}{C} = 0 \tag{2}
+\]</span></p>
+<p>将(2)写成一阶线性微分方程的标准形式</p>
+<p><span class="math display">\[
+q&#39; + \frac{1}{R C} q = 0 \tag{3}
+\]</span></p>
+<p>这是一阶齐次线性微分方程，故其通解为</p>
+<p><span class="math display">\[
+q(t) = C_1 e^{-\frac{t}{R C}} \tag{4}
+\]</span></p>
+<p>将初值条件(1)代入(4)得</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+q(0) &amp;= C_1 \\
+&amp;= Q_0
+\end{aligned} \tag{5}
+\end{equation}
+\]</span></p>
+<p>将(5)代入(4)得</p>
+<p><span class="math display">\[
+q(t) = Q_0 e^{-\frac{t}{R C}} \tag{6}
+\]</span></p>
+<p>又得</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+i(t) &amp;= \frac{\mathrm{d} q}{\mathrm{d} t} \\
+&amp;= - \frac{Q_0}{R C} e^{-\frac{t}{R C}}
+\end{aligned} \tag{7}
+\end{equation}
+\]</span></p>
+<p>至此，我们得到了RC直流电路放电过程的<span
+class="math inline">\(q(t),i(t)\)</span>的函数表达式<span
+class="math inline">\((6),(7)\)</span>。</p>
 
       
     </div>
