@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="平面一阶齐次线性微分方程组 1. 前言  所用教材：The Ordinary Differential Equations Project - Thomas W. Judson 对应教材第三章的第3.1节到第3.6节的内容，只涉及平面（二维）情况下的线性组。这对于直接学习 \(n\) 维线性组是一个很好的过渡。  一阶线性微分方程是形如 \[ \frac{\mathrm{d}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="平面一阶齐次线性微分方程组">
+<meta property="og:url" content="http://example.com/2025/04/25/%E5%B9%B3%E9%9D%A2%E4%B8%80%E9%98%B6%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84/index.html">
+<meta property="og:site_name" content="松原苏打">
+<meta property="og:description" content="平面一阶齐次线性微分方程组 1. 前言  所用教材：The Ordinary Differential Equations Project - Thomas W. Judson 对应教材第三章的第3.1节到第3.6节的内容，只涉及平面（二维）情况下的线性组。这对于直接学习 \(n\) 维线性组是一个很好的过渡。  一阶线性微分方程是形如 \[ \frac{\mathrm{d}">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-28T10:12:42.207Z">
+<meta property="article:author" content="松原苏打">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/04/25/%E5%B9%B3%E9%9D%A2%E4%B8%80%E9%98%B6%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/04/25/%E5%B9%B3%E9%9D%A2%E4%B8%80%E9%98%B6%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84/","path":"2025/04/25/平面一阶齐次线性微分方程组/","title":"平面一阶齐次线性微分方程组"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>平面一阶齐次线性微分方程组 | 松原苏打</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">松原苏打</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E9%9D%A2%E4%B8%80%E9%98%B6%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-text">平面一阶齐次线性微分方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">1. 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%9A%84%E5%BD%A2%E5%BC%8Felambda-t"><span class="nav-text">2. 解的形式：\(e^{\lambda t}\)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#part-1."><span class="nav-text">Part 1.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#part-2."><span class="nav-text">Part 2.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-text">3. 特征值和特征向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%A7%A3mathbfx-c_1-elambda-t-mathbfv-c_2-emu-t-mathbfw"><span class="nav-text">通解：\(\mathbf{x} &#x3D; c_1 e^{\lambda t} \mathbf{v} + c_2
+e^{\mu t} \mathbf{w}\)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#case-1-plambda0-%E6%9C%89%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AE%9E%E6%95%B0%E6%A0%B9"><span class="nav-text">Case 1: \(p(\lambda)&#x3D;0\) 有两个不同的实数根</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case-2-plambda0-%E6%9C%89%E5%85%B1%E8%BD%AD%E5%A4%8D%E6%95%B0%E6%A0%B9"><span class="nav-text">Case 2: \(p(\lambda)&#x3D;0\) 有共轭复数根</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-text">验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case-3-plambda0-%E4%B8%BA%E9%87%8D%E6%A0%B9"><span class="nav-text">Case 3: \(p(\lambda)&#x3D;0\) 为重根</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-2"><span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E9%87%8D%E8%BF%B0%E4%B8%89%E4%B8%AA%E5%B0%8F%E7%BB%93"><span class="nav-text">总结（重述三个小结）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AE%9E%E7%89%B9%E5%BE%81%E5%80%BCdelta0"><span class="nav-text">1. 两个不同的实特征值（\(\Delta&gt;0\)）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E8%BD%AD%E5%A4%8D%E7%89%B9%E5%BE%81%E5%80%BCdelta0"><span class="nav-text">2. 共轭复特征值（\(\Delta&lt;0\)）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E7%89%B9%E5%BE%81%E5%80%BCdelta0"><span class="nav-text">3. 重特征值（\(\Delta&#x3D;0\)）</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">松原苏打</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/25/%E5%B9%B3%E9%9D%A2%E4%B8%80%E9%98%B6%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="松原苏打">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="松原苏打">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="平面一阶齐次线性微分方程组 | 松原苏打">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          平面一阶齐次线性微分方程组
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-04-25 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-25T00:00:00+08:00">2025-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-04-28 18:12:42" itemprop="dateModified" datetime="2025-04-28T18:12:42+08:00">2025-04-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="平面一阶齐次线性微分方程组">平面一阶齐次线性微分方程组</h1>
+<h2 id="前言">1. 前言</h2>
+<blockquote>
+<p>所用教材：<a
+target="_blank" rel="noopener" href="https://judsonbooks.org/odeproject/odeproject-html/odeproject.html">The
+Ordinary Differential Equations Project - Thomas W. Judson</a><br />
+对应教材第三章的第3.1节到第3.6节的内容，只涉及平面（二维）情况下的线性组。这对于直接学习
+<span class="math inline">\(n\)</span> 维线性组是一个很好的过渡。</p>
+</blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://matsubarasoda.github.io/2025/03/22/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">一阶线性微分方程</a>是形如</p>
+<p><span class="math display">\[
+\frac{\mathrm{d} y}{\mathrm{d} x} + p(x)y = f(x)
+\]</span></p>
+<p>的方程。且当 <span class="math inline">\(f(x)=0\)</span>
+时，方程被称为一阶齐次线性微分方程：</p>
+<p><span class="math display">\[
+\frac{\mathrm{d} y}{\mathrm{d} x} + p(x)y = 0
+\]</span></p>
+<p>本文讨论的主题是在一阶齐次线性微分方程基础上，讨论由两个一阶齐次线性微分方程构成的方程组，其形如：</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} = ax + by \\
+\frac{\mathrm{d}y}{\mathrm{d}t} = cx + dy
+\end{aligned}
+\right.
+\]</span></p>
+<p>为了之后的分析，我们令</p>
+<p><span class="math display">\[
+A =\begin{pmatrix}a &amp; b \\c &amp; d\end{pmatrix},\ \mathbf{x}
+=\begin{pmatrix}x(t) \\ y(t)\end{pmatrix}
+\]</span></p>
+<p>那么，我们有</p>
+<p><span class="math display">\[
+\begin{pmatrix}x&#39;(t) \\y&#39;(t)\end{pmatrix}=\begin{pmatrix}a x(t)
++ b y(t) \\ c x(t) + d y(t)\end{pmatrix}=\begin{pmatrix}a &amp; b \\ c
+&amp; d\end{pmatrix}\begin{pmatrix}x(t) \\ y(t)\end{pmatrix}.
+\]</span></p>
+<p>也可以写作</p>
+<p><span class="math display">\[
+\mathbf{x&#39;} = A \mathbf{x}.
+\]</span></p>
+<p>我们开始研究如何得到 <span class="math inline">\(x(t)\)</span> 和
+<span class="math inline">\(y(t)\)</span> 的通解。</p>
+<span id="more"></span>
+<h2 id="解的形式elambda-t">2. 解的形式：<span
+class="math inline">\(e^{\lambda t}\)</span></h2>
+<h3 id="part-1.">Part 1.</h3>
+<p>我们知道，一阶齐次线性微分方程：</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}x}{\mathrm{d}t} = \lambda x
+\]</span></p>
+<p>的通解为：</p>
+<p><span class="math display">\[
+x = Ce^{\lambda t}
+\]</span></p>
+<p>那么，我们可以先猜测一下平面一阶齐次线性微分方程组的解可能为：</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+x &amp;= e^{\lambda t} \\
+y &amp;= e^{\mu t}
+\end{aligned}
+\right.
+\]</span></p>
+<p>代入到 <span class="math inline">\(\mathbf{x&#39;} = A
+\mathbf{x}\)</span> ：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lambda e^{\lambda t} &amp;= a\ e^{\lambda t} + b\ e^{\mu t} \\
+\mu e^{\mu t} &amp;= c\ e^{\lambda t} + d\ e^{\mu t}
+\end{aligned}
+\]</span></p>
+<p>假设 <span class="math inline">\(\lambda,\mu\)</span>
+的值已知，那么我们可以解得 <span
+class="math inline">\(a=\lambda,b=0,c=0,d=\mu\)</span> ，所以 <span
+class="math inline">\(A\)</span> 为：</p>
+<p><span class="math display">\[
+A = \begin{pmatrix} \lambda &amp; 0 \\ 0 &amp; \mu \end{pmatrix}
+\]</span></p>
+<p>换句话说，如果 <span class="math inline">\(A\)</span>
+的形式符合上式，那么 <span class="math inline">\(x = e^{\lambda t},\ y =
+e^{\mu t}\)</span> 是方程组 <span class="math inline">\(\mathbf{x&#39;}
+= A \mathbf{x} = \begin{pmatrix} \lambda &amp; 0 \\ 0 &amp; \mu
+\end{pmatrix}\mathbf{x}\)</span>
+的解。我们得到了某个单独情况下的解。如果 <span
+class="math inline">\(A\)</span>
+是一般形式的话，方程组的解是什么呢？</p>
+<h3 id="part-2.">Part 2.</h3>
+<p>我们重新猜测方程组的解可能是：</p>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+x &amp;= \alpha e^{\lambda t} + \beta e^{\mu t}\\
+y &amp;= \gamma e^{\lambda t} + \delta e^{\mu t}
+\end{aligned}
+\right.
+\]</span></p>
+<p>将解用矩阵表示：</p>
+<p><span class="math display">\[
+\mathbf{x}=\begin{pmatrix}x \\ y \end{pmatrix} = \begin{pmatrix}\alpha
+&amp; \beta \\ \gamma &amp; \delta
+\end{pmatrix}\begin{pmatrix}e^{\lambda t} \\ e^{\mu t} \end{pmatrix}
+\]</span></p>
+<p>将之代入至公式 <span class="math inline">\(\mathbf{x&#39;} = A
+\mathbf{x}\)</span> ：</p>
+<p><span class="math display">\[
+\begin{pmatrix}\alpha &amp; \beta \\ \gamma &amp; \delta
+\end{pmatrix}\begin{pmatrix}\lambda&amp;0\\
+0&amp;\mu\end{pmatrix}\begin{pmatrix}e^{\lambda t} \\ e^{\mu t}
+\end{pmatrix}
+=
+\begin{pmatrix}a &amp; b \\ c &amp; d\end{pmatrix}\begin{pmatrix}\alpha
+&amp; \beta \\ \gamma &amp; \delta
+\end{pmatrix}\begin{pmatrix}e^{\lambda t} \\ e^{\mu t}\end{pmatrix}
+\]</span></p>
+<p>于是乎</p>
+<p><span class="math display">\[
+\begin{pmatrix}\alpha &amp; \beta \\ \gamma &amp; \delta
+\end{pmatrix}\begin{pmatrix}\lambda&amp;0\\ 0&amp;\mu\end{pmatrix}
+=
+\begin{pmatrix}a &amp; b \\ c &amp; d\end{pmatrix}\begin{pmatrix}\alpha
+&amp; \beta \\ \gamma &amp; \delta \end{pmatrix}
+\]</span></p>
+<p>让我们分别计算一下上式的左、右侧：</p>
+$$
+<span class="math display">\[\begin{aligned}
+\begin{pmatrix}\alpha &amp; \beta \\ \gamma &amp; \delta
+\end{pmatrix}\begin{pmatrix}\lambda&amp;0\\ 0&amp;\mu\end{pmatrix}
+&amp;=
+\begin{pmatrix}\alpha\lambda &amp; \beta\mu \\ \gamma\lambda &amp;
+\delta\mu \end{pmatrix}
+=
+\begin{pmatrix}\lambda\begin{pmatrix}\alpha\\\gamma\end{pmatrix} &amp;
+\mu\begin{pmatrix}\beta\\\delta\end{pmatrix}\end{pmatrix}
+=
+\begin{pmatrix}\lambda\mathbf{v} &amp; \mu\mathbf{w}\end{pmatrix}
+,\\[12pt]
+
+\begin{pmatrix}a &amp; b \\ c &amp; d\end{pmatrix}\begin{pmatrix}\alpha
+&amp; \beta \\ \gamma &amp; \delta \end{pmatrix}
+&amp;=
+A\begin{pmatrix}\alpha &amp; \beta \\ \gamma &amp; \delta \end{pmatrix}
+=
+\begin{pmatrix}A\begin{pmatrix}\alpha\\\gamma\end{pmatrix} &amp;
+A\begin{pmatrix}\beta\\\delta\end{pmatrix}\end{pmatrix}
+=
+\begin{pmatrix}A\mathbf{v} &amp; A\mathbf{w}\end{pmatrix}. \text{ where
+}\mathbf{v}=\begin{pmatrix}\alpha\\\gamma\end{pmatrix},\mathbf{w}=\begin{pmatrix}\beta\\\delta\end{pmatrix}
+\end{aligned}\]</span>
+<p>$$</p>
+<p>通过比较观察，我们可以知道</p>
+<p><span class="math display">\[
+A\mathbf{v}=\lambda\mathbf{v},\\
+A\mathbf{w}=\mu\mathbf{w}.
+\]</span></p>
+<p>下一步，便是想办法找到 <span
+class="math inline">\(\lambda,\mu,\mathbf{v},\mathbf{w}\)</span>
+的值。我们将在下一节介绍与此相关的概念：特征值和特征向量。</p>
+<h2 id="特征值和特征向量">3. 特征值和特征向量</h2>
+<p>特征值和特征向量是矩阵的一种属性。对于一个 <span
+class="math inline">\(2\times 2\)</span> 矩阵 <span
+class="math inline">\(A\)</span> 而言，当它作用在一个非零向量 <span
+class="math inline">\(\mathbf{v}\)</span>
+上时，如果这个向量只是被拉伸或者收缩（数量上乘了 <span
+class="math inline">\(\lambda\)</span>），方向保持不变或180度掉头，那么我们说
+<span class="math inline">\(\lambda\)</span> 是矩阵 <span
+class="math inline">\(A\)</span> 的特征值，<span
+class="math inline">\(\mathbf{v}\)</span> 是相应的特征向量。</p>
+<p>表达式写作：</p>
+<p><span class="math display">\[
+A\mathbf{v}=\lambda\mathbf{v}
+\]</span></p>
+<p>这也是我们上一节最后所得到的表达式。只要我们有办法找到 <span
+class="math inline">\(\lambda\)</span> 和 <span
+class="math inline">\(\mathbf{v}\)</span>，那么我们也就找到了 <span
+class="math inline">\(\mathbf{x&#39;} = A \mathbf{x}\)</span> 的解。</p>
+<p>化简：</p>
+<p><span class="math display">\[
+\begin{aligned}
+A\mathbf{v}-\lambda\mathbf{v}&amp;=0\\
+A\mathbf{v}-\lambda I\mathbf{v}&amp;=0\\
+(A-\lambda I)\mathbf{v}&amp;=0\\
+\begin{pmatrix}a-\lambda&amp;b\\c&amp;d-\lambda\end{pmatrix}
+\begin{pmatrix}x_0\\y_0\end{pmatrix}&amp;=0
+\end{aligned}
+\]</span></p>
+<p>注意到，无论 <span
+class="math inline">\(\det\begin{pmatrix}a-\lambda&amp;b\\c&amp;d-\lambda\end{pmatrix}\)</span>
+等不等于 <span class="math inline">\(0\)</span>，<span
+class="math inline">\(\begin{pmatrix}0\\0\end{pmatrix}\)</span> 始终是
+<span
+class="math inline">\(\begin{pmatrix}x_0\\y_0\end{pmatrix}\)</span>的解。进一步考虑，如果
+<span
+class="math inline">\(\det\begin{pmatrix}a-\lambda&amp;b\\c&amp;d-\lambda\end{pmatrix}\neq
+0\)</span>，那么 <span
+class="math inline">\(\begin{pmatrix}0\\0\end{pmatrix}\)</span>
+将是唯一解。但我们要找的向量 <span
+class="math inline">\(\mathbf{v}\)</span>
+必须是非零向量，才符合我们对特征向量的定义，所以 <span
+class="math inline">\(\det\begin{pmatrix}a-\lambda&amp;b\\c&amp;d-\lambda\end{pmatrix}=0\)</span>。</p>
+<p>于是我们得到</p>
+<p><span class="math display">\[
+\det\begin{pmatrix}a-\lambda&amp;b\\c&amp;d-\lambda\end{pmatrix} =
+\lambda^2-(a+d)\lambda+ad-bc= 0
+\]</span></p>
+<p>我们称 <span class="math inline">\(p(\lambda) =
+\lambda^2-(a+d)\lambda+ad-bc\)</span> 为矩阵 <span
+class="math inline">\(A = \begin{pmatrix}a &amp; b \\c &amp;
+d\end{pmatrix}\)</span> 的特征多项式。<span
+class="math inline">\(p(\lambda)=0\)</span> 为其特征方程。</p>
+<p>特征方程 <span class="math inline">\(p(\lambda)=0\)</span>
+的两个根即为特征值：</p>
+<p><span class="math display">\[
+\lambda = \frac{(a+d)\pm\sqrt{(a+d)^2-4(ad-bc)}}{2}
+\]</span></p>
+<p>对应的特征向量为：（对于某个已知的特征值而言，相应的特征向量有无穷个，这里只写了两个）</p>
+<p><span class="math display">\[
+\mathbf{v} = \begin{pmatrix}-b\\a-\lambda\end{pmatrix} =
+\begin{pmatrix}d-\lambda\\-c\end{pmatrix}
+\]</span></p>
+<blockquote>
+<p>特征值和特征向量的计算公式不用记，这里写出来是因为草稿纸上都写了，索性誊写上来~</p>
+</blockquote>
+<p>下一步，我们可以尝试找出 <span class="math inline">\(\mathbf{x&#39;}
+= A \mathbf{x}\)</span> 的通解了。</p>
+<h2 id="通解mathbfx-c_1-elambda-t-mathbfv-c_2-emu-t-mathbfw">通解：<span
+class="math inline">\(\mathbf{x} = c_1 e^{\lambda t} \mathbf{v} + c_2
+e^{\mu t} \mathbf{w}\)</span></h2>
+<h3 id="case-1-plambda0-有两个不同的实数根">Case 1: <span
+class="math inline">\(p(\lambda)=0\)</span> 有两个不同的实数根</h3>
+<p>目前，我们知道了</p>
+<ul>
+<li><span class="math inline">\(\mathbf{x&#39;} = A \mathbf{x}\)</span>
+的解的形式为</li>
+</ul>
+<p><span class="math display">\[
+\left\{
+\begin{aligned}
+x &amp;= \alpha e^{\lambda t} + \beta e^{\mu t}\\
+y &amp;= \gamma e^{\lambda t} + \delta e^{\mu t}
+\end{aligned}
+\right.
+\]</span></p>
+<p>写成矩阵形式为：</p>
+<p><span class="math display">\[
+\mathbf{x} = e^{\lambda t} \mathbf{v} + e^{\mu t} \mathbf{w} \text{
+,where
+}\mathbf{v}=\begin{pmatrix}\alpha\\\gamma\end{pmatrix},\mathbf{w}=\begin{pmatrix}\beta\\\delta\end{pmatrix}.
+\]</span></p>
+<ul>
+<li>其中 <span class="math inline">\(\lambda,\mu\)</span> 是矩阵 <span
+class="math inline">\(A\)</span> 的特征值，<span
+class="math inline">\(\mathbf{v}和\mathbf{w}\)</span>
+是相应的特征向量。</li>
+</ul>
+<p>因为特征向量有无穷个，所以 <span
+class="math inline">\(\mathbf{x&#39;} = A \mathbf{x}\)</span>
+的通解为：</p>
+<p><span class="math display">\[
+\mathbf{x} = c_1 e^{\lambda t} \mathbf{v} + c_2 e^{\mu t} \mathbf{w}.
+\]</span></p>
+<blockquote>
+<p>证明见教材：<a
+target="_blank" rel="noopener" href="https://judsonbooks.org/odeproject/odeproject-html/linear02.html#linear02-theorem-system-solution">Theorem
+3.2.6</a></p>
+</blockquote>
+<p>我们目前探讨的情况只有当 <span
+class="math inline">\(p(\lambda)=0\)</span>
+有两个不同的实数根的情况。</p>
+<h4 id="小结">小结</h4>
+<p>对于平面一阶齐次线性微分方程组：</p>
+<p><span class="math display">\[
+\mathbf{x}&#39;=A\mathbf{x}.
+\]</span></p>
+<p>如果</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix} \text{ 满足判别式 }
+\Delta=(a+d)^2-4(ad-bc)&gt;0.
+\]</span></p>
+<p>那么特征值为：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lambda &amp;= \frac{(a+d)+\sqrt{(a+d)^2-4(ad-bc)}}{2}\\[12pt]
+\mu &amp;= \frac{(a+d)-\sqrt{(a+d)^2-4(ad-bc)}}{2}
+\end{aligned}
+\]</span></p>
+<p>对应的特征向量可以取为：（没有代入 <span
+class="math inline">\(\lambda,\mu\)</span> 的值，不然式子太长了）</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{v} &amp;= \begin{pmatrix}-b\\a-\lambda\end{pmatrix} \text{ 或 }
+\begin{pmatrix}d-\lambda\\-c\end{pmatrix}\\[12pt]
+\mathbf{w} &amp;= \begin{pmatrix}-b\\a-\mu\end{pmatrix} \text{ 或 }
+\begin{pmatrix}d-\mu\\-c\end{pmatrix}
+\end{aligned}
+\]</span></p>
+<p>最终，该线性组的通解为：</p>
+<p><span class="math display">\[
+\boxed{
+\mathbf{x} = c_1 e^{\lambda t} \mathbf{v} + c_2 e^{\mu t} \mathbf{w}
+}
+\]</span></p>
+<p>我们接下来探讨如果 <span class="math inline">\(p(\lambda)=0\)</span>
+只有复数根的情况。</p>
+<h3 id="case-2-plambda0-有共轭复数根">Case 2: <span
+class="math inline">\(p(\lambda)=0\)</span> 有共轭复数根</h3>
+<p>假设 <span class="math inline">\(p(\lambda)=0\)</span>
+的两个共轭复数根分别为 <span
+class="math inline">\(\lambda=\alpha+i\beta,\mu=\alpha-i\beta\)</span>
+。</p>
+<p>根据我们在实数根情况下取得的成功，我们猜测复数根情况下，通解也是：</p>
+<p><span class="math display">\[
+\mathbf{x} = c_1 e^{\lambda t} \mathbf{v} + c_2 e^{\mu t} \mathbf{w}
+\]</span></p>
+<p>这显然是可行的，但问题是对于一个由实数构成的线性组，我们希望得到的是实数解。我们需要找到一种方法能够将虚数
+<span class="math inline">\(i\)</span> 排除在通解中。</p>
+<p>首先，<span class="math inline">\(\mathbf{x}\)</span>
+是一个复数解，我们可以将它表示为实部加虚部的形式：</p>
+<p><span class="math display">\[
+\mathbf{x} = \mathrm{Re}{(\mathbf{x})} + i\ \mathrm{Im}{(\mathbf{x})}
+\]</span></p>
+<p>于是，我们可以对实部和虚部分别求导：</p>
+<p><span class="math display">\[
+\mathbf{x}&#39; = \mathrm{Re}{(\mathbf{x})}&#39; + i\
+\mathrm{Im}{(\mathbf{x})}&#39;
+\]</span></p>
+<p>实际上，我们可以将通解中的虚数 <span class="math inline">\(i\)</span>
+省去以得到实数通解，我将之表示为：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{x}_\mathbb{R} &amp;= \mathrm{Re}{(\mathbf{x})} +
+\mathrm{Im}{(\mathbf{x})}\\
+\mathbf{x}_\mathbb{R}&#39; &amp;= \mathrm{Re}{(\mathbf{x})}&#39; +
+\mathrm{Im}{(\mathbf{x})}&#39;
+\end{aligned}
+\]</span></p>
+<p>现在，让我们尝试找到 <span
+class="math inline">\(\mathrm{Re}{(\mathbf{x})},\mathrm{Im}{(\mathbf{x})}\)</span>
+的表达式。</p>
+<p>让我们先列出已知的条件们：</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\mathbf{x}&#39;=A\mathbf{x}\\[12pt]
+&amp;\mathbf{x}=c_1 e^{\lambda t} \mathbf{v} + c_2 e^{\mu t}
+\mathbf{w}\\[12pt]
+&amp;A=\begin{pmatrix}a &amp; b \\c &amp; d\end{pmatrix} \text{
+满足判别式 } \Delta=(a+d)^2-4(ad-bc)&lt;0\\[12pt]
+&amp;\lambda = \alpha + i \beta,\quad \mu = \alpha - i \beta,\quad
+\text{并且 } \overline{\lambda} = \mu\\[12pt]
+&amp;\mathbf{v} =
+\begin{pmatrix}-b\\a-\lambda\end{pmatrix}=\mathbf{p}+i\mathbf{q},\quad
+\mathbf{w}=\begin{pmatrix}-b\\a-\mu\end{pmatrix}=\mathbf{p}-i\mathbf{q},\quad\text{并且
+} \overline{\mathbf{v}}=\mathbf{w} \text{ 其中 }
+\mathbf{p}=\begin{pmatrix}-b\\a-\alpha\end{pmatrix},\mathbf{q}=\begin{pmatrix}0\\-\beta\end{pmatrix}\\[12pt]
+\end{aligned}
+\]</span></p>
+<p>我们先聚焦于第一组特征值和特征向量 <span
+class="math inline">\(\lambda\)</span> 和 <span
+class="math inline">\(\mathbf{v}\)</span> 所得到的特解：</p>
+<p><span class="math display">\[
+\begin{aligned}
+e^{\lambda t}\mathbf{v}
+&amp;=e^{(\alpha+i\beta) t}(\mathbf{p}+i\mathbf{q})\\[12pt]
+&amp;=e^{\alpha t}(\cos{\beta t} + i \sin{\beta
+t})(\mathbf{p}+i\mathbf{q})\\[12pt]
+&amp;=e^{\alpha t}(\mathbf{p}\cos{\beta t}+i\mathbf{q}\cos{\beta
+t}+i\mathbf{p}\sin{\beta t}+i^2\mathbf{q}\sin{\beta t})\\[12pt]
+&amp;=e^{\alpha t}(\mathbf{p}\cos{\beta t}-\mathbf{q}\sin{\beta t}) +
+ie^{\alpha t}(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta t})
+\end{aligned}
+\]</span></p>
+<p>接着，我们考虑第二组特征值和特征向量 <span
+class="math inline">\(\mu\)</span> 和 <span
+class="math inline">\(\mathbf{w}\)</span> 所得到的特解：</p>
+<p><span class="math display">\[
+\begin{aligned}
+e^{\mu t}\mathbf{w}
+&amp;=e^{(\alpha-i\beta) t}(\mathbf{p}-i\mathbf{q})\\[12pt]
+&amp;=e^{\alpha t}(\cos{\beta t} - i \sin{\beta
+t})(\mathbf{p}-i\mathbf{q})\\[12pt]
+&amp;=e^{\alpha t}(\mathbf{p}\cos{\beta t}-i\mathbf{q}\cos{\beta
+t}-i\mathbf{p}\sin{\beta t}+i^2\mathbf{q}\sin{\beta t})\\[12pt]
+&amp;=e^{\alpha t}(\mathbf{p}\cos{\beta t}-\mathbf{q}\sin{\beta t}) -
+ie^{\alpha t}(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta t})
+\end{aligned}
+\]</span></p>
+<p>我们回到通解形式：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{x}
+&amp;=c_1 e^{\lambda t} \mathbf{v} + c_2 e^{\mu t} \mathbf{w}\\
+&amp;=(c_1+c_2)e^{\alpha t}(\mathbf{p}\cos{\beta t}-\mathbf{q}\sin{\beta
+t})+i(c_1-c_2)e^{\alpha t}(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta
+t})\\
+&amp;=k_1 e^{\alpha t}(\mathbf{p}\cos{\beta t}-\mathbf{q}\sin{\beta
+t})+i k_2 e^{\alpha t}(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta
+t})\text{ 取 } c_1=\frac{k_1+k_2}{2},\ c_2=\frac{k_1-k_2}{2}
+\end{aligned}
+\]</span></p>
+<p>于是，我们得到了通解的实部和虚部：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{Re}(\mathbf{x})=k_1 e^{\alpha t}(\mathbf{p}\cos{\beta
+t}-\mathbf{q}\sin{\beta t})\\
+\mathrm{Im}(\mathbf{x})=k_2 e^{\alpha t}(\mathbf{p}\sin{\beta
+t}+\mathbf{q}\cos{\beta t})
+\end{aligned}
+\]</span></p>
+<p>如果我们之前所述，我们可以将 <span class="math inline">\(i\)</span>
+虚数本身给舍弃，因为对 <span class="math inline">\(\mathbf{x}\)</span>
+求导时，实部和虚部是分开独立求导的（至少在本文的范围内），所以我们可以得到实数通解：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{x}_\mathbb{R}
+&amp;=\mathrm{Re}(\mathbf{x}) + \mathrm{Im}(\mathbf{x})\\
+&amp;= k_1 e^{\alpha t}(\mathbf{p}\cos{\beta t}-\mathbf{q}\sin{\beta t})
++ k_2 e^{\alpha t}(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta t})
+\end{aligned}
+\]</span></p>
+<h4 id="验证">验证</h4>
+<p>我们来验证一下 <span
+class="math inline">\(\mathbf{x}_\mathbb{R}&#39;=A\mathbf{x}_\mathbb{R}\)</span>
+是否为真：</p>
+$$
+<span class="math display">\[\begin{aligned}
+\mathbf{x}_\mathbb{R}&#39;
+&amp;=\mathrm{Re}(\mathbf{x})&#39; +
+\mathrm{Im}(\mathbf{x})&#39;\\[12pt]
+&amp;=k_1\alpha e^{\alpha t}(\mathbf{p}\cos{\beta
+t}-\mathbf{q}\sin{\beta t})+k_1 e^{\alpha t}(-\beta\mathbf{p}\sin{\beta
+t}-\beta\mathbf{q}\cos{\beta t})+k_2\alpha e^{\alpha
+t}(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta t})+k_2 e^{\alpha
+t}(\beta\mathbf{p}\cos{\beta t}-\beta\mathbf{q}\sin{\beta t})\\[12pt]
+&amp;=e^{\alpha t}\left\{\cos{\beta
+t}\left[k_1\alpha\mathbf{p}-k_1\beta\mathbf{q}+k_2\alpha\mathbf{q}+k_2\beta\mathbf{p}\right]+\sin{\beta
+t}\left[-k_1\alpha\mathbf{q}-k_1\beta\mathbf{p}+k_2\alpha\mathbf{p}-k_2\beta\mathbf{q}\right]\right\}\\[12pt]
+&amp;=e^{\alpha t}\left\{\cos{\beta
+t}\left[k_1\left(\alpha\mathbf{p}-\beta\mathbf{q}\right)+k_2\left(\beta\mathbf{p}+\alpha\mathbf{q}\right)\right]+\sin{\beta
+t}\left[-k_1(\beta\mathbf{p}+\alpha\mathbf{q})+k_2\left(\alpha\mathbf{p}-\beta\mathbf{q}\right)\right]\right\}\\[24pt]
+
+A\mathbf{x}_\mathbb{R}
+&amp;= k_1 e^{\alpha t}A(\mathbf{p}\cos{\beta t}-\mathbf{q}\sin{\beta
+t}) + k_2 e^{\alpha t}A(\mathbf{p}\sin{\beta t}+\mathbf{q}\cos{\beta
+t})\\[12pt]
+&amp;=e^{\alpha t}\left\{\cos{\beta
+t}\left[k_1A\mathbf{p}+k_2A\mathbf{q}\right]+\sin{\beta
+t}\left[-k_1A\mathbf{q}+k_2 A\mathbf{p}\right] \right\}
+\end{aligned}\]</span>
+<p>$$</p>
+<p>为了满足 <span
+class="math inline">\(\mathbf{x}_\mathbb{R}&#39;=A\mathbf{x}_\mathbb{R}\)</span>，我们必须验证下式为真：</p>
+<p><span class="math display">\[
+A\mathbf{p} = \alpha \mathbf{p} - \beta \mathbf{q} , \quad A\mathbf{q} =
+\beta \mathbf{p} + \alpha \mathbf{q}.
+\]</span></p>
+<p>回顾之前我们对 <span
+class="math inline">\(\mathbf{p},\mathbf{q}\)</span> 的描述：</p>
+<p><span class="math display">\[
+\mathbf{v}=\mathbf{p}+i\mathbf{q}.
+\]</span></p>
+<p>于是有：</p>
+$$
+<span class="math display">\[\begin{aligned}
+A\mathbf{v}
+&amp;=A(\mathbf{p}+i\mathbf{q})\\
+&amp;=A\mathbf{p}+iA\mathbf{q}\\[12pt]
+
+\lambda\mathbf{v} &amp;= (\alpha+i\beta)(\mathbf{p}+i\mathbf{q})\\
+&amp;=(\alpha\mathbf{p}-\beta\mathbf{q})+i(\beta\mathbf{p}+\alpha\mathbf{q})
+\end{aligned}\]</span>
+<p>$$</p>
+<p>因为 <span
+class="math inline">\(A\mathbf{v}=\lambda\mathbf{v}\)</span>，所以：</p>
+<p><span class="math display">\[
+A\mathbf{p} = \alpha \mathbf{p} - \beta \mathbf{q} , \quad A\mathbf{q} =
+\beta \mathbf{p} + \alpha \mathbf{q}
+\]</span></p>
+<p>为真。所以 <span
+class="math inline">\(\mathbf{x}_\mathbb{R}&#39;=A\mathbf{x}_\mathbb{R}\)</span>
+为真。</p>
+<h4 id="小结-1">小结</h4>
+<p>对于平面一阶齐次线性微分方程组：</p>
+<p><span class="math display">\[
+\mathbf{x}&#39;=A\mathbf{x}.
+\]</span></p>
+<p>如果</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix} \text{ 满足判别式 }
+\Delta=(a+d)^2-4(ad-bc)&lt;0,
+\]</span></p>
+<p>那么特征值为一对共轭复数：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lambda &amp;= \alpha+i\beta\\[12pt]
+\mu &amp;= \alpha-i\beta
+\end{aligned}
+\]</span></p>
+<p>对应的特征向量可以取为：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{v} &amp;= \begin{pmatrix}-b\\a-\lambda\end{pmatrix} = \mathbf{p}
++ i\mathbf{q} \\[12pt]
+\mathbf{w} &amp;= \begin{pmatrix}-b\\a-\mu\end{pmatrix} = \mathbf{p} -
+i\mathbf{q}
+\end{aligned}
+\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{p} &amp;= \begin{pmatrix}-b\\a-\alpha\end{pmatrix}\\[12pt]
+\mathbf{q} &amp;= \begin{pmatrix}0\\-\beta\end{pmatrix}
+\end{aligned}
+\]</span></p>
+<p>最终，该线性组的复数通解为：</p>
+<p><span class="math display">\[
+\mathbf{x} = c_1 e^{\lambda t} \mathbf{v} + c_2 e^{\mu t} \mathbf{w}
+\]</span></p>
+<p>实数通解为：</p>
+<p><span class="math display">\[
+\boxed{
+\mathbf{x}_\mathbb{R} = e^{\alpha t} \left[ k_1
+\left(\mathbf{p}\cos{\beta t} - \mathbf{q}\sin{\beta t}\right) + k_2
+\left(\mathbf{p}\sin{\beta t} + \mathbf{q}\cos{\beta t}\right) \right]
+}
+\]</span></p>
+<p>接下来，我们讨论 <span class="math inline">\(p(\lambda)=0\)</span>
+重根的情况。</p>
+<h3 id="case-3-plambda0-为重根">Case 3: <span
+class="math inline">\(p(\lambda)=0\)</span> 为重根</h3>
+<p>对于矩阵 <span
+class="math inline">\(A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\)</span>，当其特征方程
+<span class="math inline">\(p(\lambda)=0\)</span> 有重根 <span
+class="math inline">\(\lambda\)</span> 时，我们能够得到通解的第一个部分
+<span class="math inline">\(e^{\lambda
+t}\mathbf{v}\)</span>。但我们只有一个特征向量，无法张成整个二维空间。同时，我们也期望通解的形式为：<span
+class="math inline">\(\mathbf{x} = c_1 e^{\lambda t} \mathbf{v} + c_2
+e^{\lambda t} \mathbf{w}\)</span>。</p>
+<p>所以，我们现在需要找到一个向量 <span
+class="math inline">\(\mathbf{w}\)</span> 满足：</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbf{v}\)</span> 和 <span
+class="math inline">\(\mathbf{w}\)</span> 线性无关</li>
+<li><span class="math inline">\((A-\lambda
+I)\mathbf{w}=\mathbf{v}\)</span></li>
+</ol>
+<p>关于第1点，我能够理解，因为我们需要张成整个二维空间，所以需要两个线性无关的向量作为基向量。但是关于第2点，这只是我从其它的资料里挪用过来的，我并不理解为什么需要这样，这涉及了一个被称作“广义特征向量”的概念，我对此毫无头绪。但就让我这样继续吧。</p>
+<p>我们可以将 <span class="math inline">\(\mathbf{w}\)</span> 表示为
+<span
+class="math inline">\(t\mathbf{v}+\mathbf{u}\)</span>，于是有：</p>
+<p><span class="math display">\[
+\begin{aligned}
+(A-\lambda I)\mathbf{w}
+&amp;= (A-\lambda I)(t\mathbf{v}+\mathbf{u})\\
+&amp;=tA\mathbf{v}+A\mathbf{u}-t\lambda I\mathbf{v}-\lambda
+I\mathbf{u}\\
+&amp;=A\mathbf{u}-\lambda I \mathbf{u}\\
+&amp;=(A-\lambda I)\mathbf{u}\\
+&amp;=\mathbf{v}
+\end{aligned}
+\]</span></p>
+<p>由上式，我们能够解得 <span
+class="math inline">\(\mathbf{u}\)</span>，我们称其为广义特征向量。</p>
+<p>最终，通解为：</p>
+<p><span class="math display">\[
+\mathbf{x}=c_1 e^{\lambda t}\mathbf{v} + c_2 e^{\lambda
+t}(t\mathbf{v}+\mathbf{u})
+\]</span></p>
+<h4 id="小结-2">小结</h4>
+<p>对于平面一阶齐次线性微分方程组：</p>
+<p><span class="math display">\[
+\mathbf{x}&#39;=A\mathbf{x}.
+\]</span></p>
+<p>如果</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix} \text{ 满足判别式 }
+\Delta=(a+d)^2-4(ad-bc)=0,
+\]</span></p>
+<p>那么特征值为重根：</p>
+<p><span class="math display">\[
+\lambda=\frac{a+d}{2}
+\]</span></p>
+<p>对应的特征向量可以取为：</p>
+<p><span class="math display">\[
+\mathbf{v}=\begin{pmatrix}-b\\a-\lambda\end{pmatrix} \text{ 或 }
+\begin{pmatrix}d-\lambda\\-c\end{pmatrix}
+\]</span></p>
+<p>对应的广义特征向量 <span class="math inline">\(\mathbf{u}\)</span>
+满足：</p>
+<ul>
+<li><span class="math inline">\(\mathbf{v}\)</span> 和 <span
+class="math inline">\(\mathbf{u}\)</span> 线性无关</li>
+<li><span class="math inline">\((A-\lambda
+I)\mathbf{u}=\mathbf{v}\)</span></li>
+</ul>
+<p>最终，该线性组的通解为：</p>
+<p><span class="math display">\[
+\boxed{
+\mathbf{x}=c_1 e^{\lambda t}\mathbf{v} + c_2 e^{\lambda
+t}(t\mathbf{v}+\mathbf{u})
+}
+\]</span></p>
+<h2 id="总结重述三个小结">总结（重述三个小结）</h2>
+<blockquote>
+<p>我把我的三个小结丢给AI，它帮我做的总结~</p>
+</blockquote>
+<p>对于平面一阶齐次线性微分方程组 <span class="math display">\[
+\mathbf{x}&#39; = A\mathbf{x},\quad
+A = \begin{pmatrix}a &amp; b \\ c &amp; d\end{pmatrix},
+\]</span> 其行为完全由矩阵 <span class="math inline">\(A\)</span>
+的判别式 <span class="math display">\[
+\Delta = (a + d)^2 - 4\,(ad - bc)
+\]</span> 的符号决定。下面给出三种情形下的通解形式：</p>
+<h3 id="两个不同的实特征值delta0">1. 两个不同的实特征值（<span
+class="math inline">\(\Delta&gt;0\)</span>）</h3>
+<ul>
+<li><strong>特征值</strong> <span class="math display">\[
+\lambda_{1,2} = \frac{(a+d)\pm\sqrt{\Delta}}{2},
+\quad \Delta=(a+d)^2-4(ad-bc)&gt;0.
+\]</span></li>
+<li><strong>特征向量</strong> 对应 <span
+class="math inline">\(\lambda_1\)</span> 可取 <span
+class="math inline">\(\mathbf{v}=\bigl(-b,\;a-\lambda_1\bigr)^{\mathsf
+T}\)</span>， 对应 <span class="math inline">\(\lambda_2\)</span> 可取
+<span
+class="math inline">\(\mathbf{w}=\bigl(-b,\;a-\lambda_2\bigr)^{\mathsf
+T}\)</span>。</li>
+<li><strong>通解</strong> <span class="math display">\[
+\mathbf{x}(t)
+= c_1\,e^{\lambda_1 t}\,\mathbf{v}
++ c_2\,e^{\lambda_2 t}\,\mathbf{w}.
+\]</span></li>
+</ul>
+<h3 id="共轭复特征值delta0">2. 共轭复特征值（<span
+class="math inline">\(\Delta&lt;0\)</span>）</h3>
+<ul>
+<li><strong>特征值</strong> <span class="math display">\[
+\lambda,\overline\lambda
+= \alpha\pm i\beta,
+\quad \alpha=\tfrac{a+d}{2},\quad \beta=\tfrac{\sqrt{-\Delta}}{2}.
+\]</span></li>
+<li><strong>对应实部／虚部向量</strong> 写 <span
+class="math inline">\(\mathbf{v}=\mathbf{p}+i\mathbf{q}\)</span>， 可取
+<span
+class="math inline">\(\mathbf{p}=\bigl(-b,\;a-\alpha\bigr)^{\mathsf
+T}\)</span>, <span
+class="math inline">\(\mathbf{q}=\bigl(0,\;-\beta\bigr)^{\mathsf
+T}\)</span>。</li>
+<li><strong>实数通解</strong> <span class="math display">\[
+\mathbf{x}(t)
+= e^{\alpha t}\Bigl[
+  k_1\bigl(\mathbf{p}\cos\beta t - \mathbf{q}\sin\beta t\bigr)
+  + k_2\bigl(\mathbf{p}\sin\beta t + \mathbf{q}\cos\beta t\bigr)
+\Bigr].
+\]</span></li>
+</ul>
+<h3 id="重特征值delta0">3. 重特征值（<span
+class="math inline">\(\Delta=0\)</span>）</h3>
+<ul>
+<li><strong>特征值</strong> <span class="math display">\[
+\lambda = \frac{a+d}{2},
+\quad \Delta=(a+d)^2-4(ad-bc)=0.
+\]</span></li>
+<li><strong>特征向量</strong> 取任一非零解 <span
+class="math inline">\(\mathbf{v}=\bigl(-b,\;a-\lambda\bigr)^{\mathsf
+T}\)</span>。</li>
+<li><strong>广义特征向量</strong> 找 <span
+class="math inline">\(\mathbf{u}\)</span> 满足 <span
+class="math inline">\((A-\lambda I)\,\mathbf{u}=\mathbf{v}\)</span>，且
+<span class="math inline">\(\mathbf{u}\)</span> 与 <span
+class="math inline">\(\mathbf{v}\)</span> 线性无关。</li>
+<li><strong>通解</strong> <span class="math display">\[
+\mathbf{x}(t)
+= c_1\,e^{\lambda t}\,\mathbf{v}
++ c_2\,e^{\lambda t}\bigl(t\,\mathbf{v} + \mathbf{u}\bigr).
+\]</span></li>
+</ul>
+<hr />
+<p>以上</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/19/%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%87%BD%E6%95%B0/" rel="prev" title="逻辑斯蒂函数">
+                  <i class="fa fa-angle-left"></i> 逻辑斯蒂函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">松原苏打</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
