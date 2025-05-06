@@ -111,7 +111,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -129,6 +129,151 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/06/%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="松原苏打">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="松原苏打">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 松原苏打">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/05/06/%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86/" class="post-title-link" itemprop="url">三重积分</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-05-06 00:00:00 / Modified: 23:04:30" itemprop="dateCreated datePublished" datetime="2025-05-06T00:00:00+08:00">2025-05-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="三重积分">三重积分</h1>
+<p>想象我们的空间是欧几里得式的，我们可以用三维直角坐标系来描述空间中每一个点的位置
+<span
+class="math inline">\((x,y,z)\)</span>。进一步设想，空间中的每一个点都像一个“抽屉”，而每个抽屉里面存放着一个数字。我们可以将之描述为每个坐标
+<span class="math inline">\((x,y,z)\)</span> 映射着一个函数值 <span
+class="math inline">\(f(x,y,z)\)</span>。在这样的设想下，给定一个有限的空间
+<span class="math inline">\(\Omega\)</span> （例如，一个从原点出发，在
+<span class="math inline">\(x\)</span>、<span
+class="math inline">\(y\)</span>、<span class="math inline">\(z\)</span>
+方向上分别延伸 <span class="math inline">\(a\)</span>、<span
+class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span>
+个单位长度的长方体），我们想要知道这个空间中所有抽屉里存放的数字之和，应当如何表达？</p>
+<p>我们需要找到一条“路”，这条路连接着 <span
+class="math inline">\(\Omega\)</span>
+中所有的抽屉。然后我们沿着这条路走，把抽屉一个一个打开，看看里面的数字是多少，然后把它们全部加起来。这条路需要有一个特点，那就是不能重复经过同一个抽屉，我们要确保每个抽屉只被查看一次。</p>
+<p>我们可以设想这个路程就是体积 <span
+class="math inline">\(V\)</span>，而我们每次从上一个抽屉走到下一个抽屉的步长为体积微元
+<span class="math inline">\(\mathrm{d}
+V\)</span>。我们有三种常见的走法：</p>
+<ul>
+<li><p>直角坐标系： <span class="math inline">\(\mathrm{d} V =
+\mathrm{d} x\ \mathrm{d} y\ \mathrm{d} z\)</span></p></li>
+<li><p>柱坐标系： <span class="math inline">\(\mathrm{d} V =\mathrm{d}
+r\ (r\ \mathrm{d} \theta)\ \mathrm{d} z =r\ \mathrm{d} r\ \mathrm{d}
+\theta\ \mathrm{d} z\)</span></p></li>
+<li><p>球坐标系： <span class="math inline">\(\mathrm{d} V =\mathrm{d}
+\rho\ (\rho\ \sin{\phi}\ \mathrm{d}\theta)\  (\rho\
+\mathrm{d}\phi)=\rho^2\ \sin\phi\ \mathrm{d}\rho\ \mathrm{d}\theta\
+\mathrm{d}\phi\)</span></p></li>
+</ul>
+<center>
+<figure>
+<img src="https://openstax.org/apps/archive/20250226.165223/resources/99319fdc5a002c24e9f585e5228f4640370cdf28" style="width:30%; height:auto;">
+<figcaption>
+柱坐标系
+</figcaption>
+</figure>
+</center>
+<center>
+<figure>
+<img src="https://openstax.org/apps/archive/20250226.165223/resources/142c7c29c3ed78d27c1a63ccad6916cc7b3fe236" style="width:50%; height:auto;">
+<figcaption>
+球坐标系
+</figcaption>
+</figure>
+</center>
+<blockquote>
+<p>图示取自 openstax 教材 <a
+target="_blank" rel="noopener" href="https://openstax.org/books/calculus-volume-3/pages/5-5-triple-integrals-in-cylindrical-and-spherical-coordinates">Calculus
+Volume 3: 5.5 Triple Integrals in Cylindrical and Spherical
+Coordinates</a></p>
+</blockquote>
+<p>我们便可以通过三重积分来表达这个总和（以直角坐标系为例）：</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\iiint_\Omega f(x,y,z)\ \mathrm{d}V = \iiint_\Omega f(x,y,z)\
+\mathrm{d}x\ \mathrm{d}y\ \mathrm{d}z,\\[12pt]
+&amp;\Omega = \{(x,y,z)\in \mathbb{R}^3\mid 0 \le x \le a,\ 0 \le y \le
+b,\ 0 \le z \le c\}.
+\end{aligned}
+\]</span></p>
+<p>这个抽屉模型可以套用到许多实际问题中：</p>
+<ul>
+<li><p>当 <span class="math inline">\(f(x,y,z)\)</span>
+表示密度函数时，积分结果表示整个区域内的总质量；</p></li>
+<li><p>当 <span class="math inline">\(f(x,y,z)\)</span>
+表示电荷密度时，积分给出该区域内的总电荷量；</p></li>
+</ul>
+<p>三重积分可以作为连接空间分布函数和物理世界总量之间的桥梁。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/06/%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -174,7 +319,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-29 21:18:22" itemprop="dateModified" datetime="2025-04-29T21:18:22+08:00">2025-04-29</time>
+      <time title="Modified: 2025-05-06 23:03:01" itemprop="dateModified" datetime="2025-05-06T23:03:01+08:00">2025-05-06</time>
     </span>
 
   
