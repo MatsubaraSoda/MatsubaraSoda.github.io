@@ -22,20 +22,20 @@
     <meta name="description" content="一阶线性微分方程求解的两种方法 定义 一阶线性微分方程(A first order linear differential equation)是能够被表示为以下形式的等式: \[ \frac{d y}{d x} + p(x)y &#x3D; f(x) \] 当\(f(x)&#x3D;0\)时，等式被称作一阶齐次线性微分方程(A first order homogeneous linear differ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一阶线性微分方程求解的两种方法">
-<meta property="og:url" content="http://example.com/2025/03/22/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:url" content="http://example.com/2025/03/23/%E5%BD%92%E6%A1%A3_20250808/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="松原苏打">
 <meta property="og:description" content="一阶线性微分方程求解的两种方法 定义 一阶线性微分方程(A first order linear differential equation)是能够被表示为以下形式的等式: \[ \frac{d y}{d x} + p(x)y &#x3D; f(x) \] 当\(f(x)&#x3D;0\)时，等式被称作一阶齐次线性微分方程(A first order homogeneous linear differ">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-22T08:11:30.120Z">
-<meta property="article:modified_time" content="2025-04-16T16:20:33.734Z">
+<meta property="article:published_time" content="2025-03-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-08T10:10:09.062Z">
 <meta property="article:author" content="松原苏打">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2025/03/22/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="http://example.com/2025/03/23/%E5%BD%92%E6%A1%A3_20250808/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/03/22/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/","path":"2025/03/22/一阶线性微分方程求解的两种方法/","title":"一阶线性微分方程求解的两种方法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/03/23/%E5%BD%92%E6%A1%A3_20250808/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/","path":"2025/03/23/归档_20250808/一阶线性微分方程求解的两种方法/","title":"一阶线性微分方程求解的两种方法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>一阶线性微分方程求解的两种方法 | 松原苏打</title>
@@ -105,7 +105,7 @@
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-text">一阶线性微分方程求解的两种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E4%B8%80%E9%98%B6%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-text">求解：一阶齐次线性微分方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-text">求解：一阶线性微分方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951%E5%8F%82%E6%95%B0%E5%8F%98%E5%88%86variation-of-parameters"><span class="nav-text">方法1：参数变分(variation
 of parameters)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952%E7%A7%AF%E5%88%86%E5%9B%A0%E5%AD%90integrating-factor"><span class="nav-text">方法2：积分因子(Integrating
-Factor)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rc%E7%9B%B4%E6%B5%81%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90--%E5%85%85%E6%94%BE%E7%94%B5%E5%85%AC%E5%BC%8F"><span class="nav-text">RC直流电路分析--充放电公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%85%E7%94%B5%E8%BF%87%E7%A8%8B"><span class="nav-text">充电过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E7%94%B5%E8%BF%87%E7%A8%8B"><span class="nav-text">放电过程</span></a></li></ol></li></ol></li></ol></div>
+Factor)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rc%E7%9B%B4%E6%B5%81%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%85%85%E6%94%BE%E7%94%B5%E5%85%AC%E5%BC%8F"><span class="nav-text">RC直流电路分析–充放电公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%85%E7%94%B5%E8%BF%87%E7%A8%8B"><span class="nav-text">充电过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E7%94%B5%E8%BF%87%E7%A8%8B"><span class="nav-text">放电过程</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,7 +146,7 @@ Factor)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/22/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/23/%E5%BD%92%E6%A1%A3_20250808/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -175,14 +175,14 @@ Factor)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2025-03-22 16:11:30" itemprop="dateCreated datePublished" datetime="2025-03-22T16:11:30+08:00">2025-03-22</time>
+      <time title="Created: 2025-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2025-03-23T00:00:00+08:00">2025-03-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-17 00:20:33" itemprop="dateModified" datetime="2025-04-17T00:20:33+08:00">2025-04-17</time>
+      <time title="Modified: 2025-08-08 18:10:09" itemprop="dateModified" datetime="2025-08-08T18:10:09+08:00">2025-08-08</time>
     </span>
 
   
@@ -287,7 +287,7 @@ class="math inline">\(h(x)=e^{-P(x)}\)</span>，但我们也可以定义<span
 class="math inline">\(h(x)= C_1 e^{-P(x)}\)</span>，因为<span
 class="math inline">\(y=v(x)h(x)=(\int \frac{f(x)}{h(x)} dx) h(x) =
 (\frac{1}{C_1} \int \frac{f(x)}{e^{-P(x)}} dx) C_1 e^{-P(x)}=(\int
-\frac{f(x)}{e^{-P(x)}} dx) e^{-P(x)}\)</span>，在这里，<span
+\frac{f(x)}{e^{-P(x)}} dx)  e^{-P(x)}\)</span>，在这里，<span
 class="math inline">\(C_1\)</span>项会被约去。前一种定义是教科书上常用的定义。</p>
 </blockquote>
 <h3 id="方法2积分因子integrating-factor">方法2：积分因子(Integrating
@@ -389,7 +389,7 @@ Sciences</a><br />
 target="_blank" rel="noopener" href="https://math.libretexts.org/Courses/Community_College_of_Denver/MAT_2562_Differential_Equations_with_Linear_Algebra/02%3A_First_Order_Equations/2.01%3A_Linear_First_Order_Equations#title">Elementary
 Differential Equations with Boundary Value Problems</a></p>
 <h1 id="应用">应用</h1>
-<h2 id="rc直流电路分析--充放电公式">RC直流电路分析--充放电公式</h2>
+<h2 id="rc直流电路分析充放电公式">RC直流电路分析–充放电公式</h2>
 <h3 id="充电过程">充电过程</h3>
 <figure>
 <img
@@ -528,12 +528,12 @@ class="math inline">\((6),(7)\)</span>。</p>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/03/18/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F/" rel="prev" title="三角函数常用公式">
+                <a href="/2025/03/18/%E5%BD%92%E6%A1%A3_20250808/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F/" rel="prev" title="三角函数常用公式">
                   <i class="fa fa-angle-left"></i> 三角函数常用公式
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/04/16/%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6/" rel="next" title="几何光学">
+                <a href="/2025/04/17/%E5%BD%92%E6%A1%A3_20250808/%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6/" rel="next" title="几何光学">
                   几何光学 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
@@ -590,6 +590,8 @@ class="math inline">\((6),(7)\)</span>。</p>
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 
